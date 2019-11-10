@@ -11,8 +11,7 @@ class DashIndicator: Indicator() {
     private val margin = 6.toPx()
     private val paddingBottom = 16.toPx()
     private val lineStrokeWidth = 3.toPx()
-
-    val paint = Paint()
+    private val paint = Paint()
     private val colorActive = 0xFFFFFFFF
     private val colorInactive = 0x80FFFFFF
 
@@ -51,7 +50,11 @@ class DashIndicator: Indicator() {
         return totalSpace * margin
     }
 
-    fun setInActive() {
+    private fun setActive() {
+        paint.color = colorActive.toInt()
+    }
+
+    private fun setInActive() {
         paint.color = colorInactive.toInt()
     }
 
@@ -64,5 +67,15 @@ class DashIndicator: Indicator() {
 
     fun getItemLength(): Float {
         return length.toFloat()
+    }
+
+    fun getInActivePaint(): Paint {
+        setInActive()
+        return paint
+    }
+
+    fun getActivePaint(): Paint {
+        setActive()
+        return paint
     }
 }
