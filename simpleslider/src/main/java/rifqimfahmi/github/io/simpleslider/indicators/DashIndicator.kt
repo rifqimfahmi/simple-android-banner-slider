@@ -8,7 +8,7 @@ class DashIndicator: Indicator() {
 
     // Length of each indicator
     private val length = 16.toPx()
-    private val margin = 6.toPx()
+    private val margin = 8.toPx()
     private val paddingBottom = 16.toPx()
     private val lineStrokeWidth = 3.toPx()
     private val paint = Paint()
@@ -77,5 +77,9 @@ class DashIndicator: Indicator() {
     fun getActivePaint(): Paint {
         setActive()
         return paint
+    }
+
+    fun getItemLengthWithMargin(): Int {
+        return length + margin
     }
 }
